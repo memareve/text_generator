@@ -21,7 +21,7 @@ def dictionary(name):
             for i in f_in:
                 i = i.replace('\n', '').replace('!', '').replace('?', '').replace('.', '').replace('(', '')\
                     .replace(')', '').replace('<', '').replace('>', '').replace('\'', '').replace('"', '').replace('«', '')\
-                    .replace('»', '').replace('-', '').replace('—', '').replace(';', '').split()
+                    .replace('»', '').replace('-', '').replace('—', '').replace(';', '').replace('*', '').split()
                 a += i
             for j in a:
                 if j[0].isupper():
