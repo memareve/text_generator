@@ -14,27 +14,31 @@ def main():
 
 
 def dictionary(name):
-    with open(name, 'r', encoding="utf8") as f_in:
-        a = []
-        f = []
-        for i in f_in:
-            i = i.replace('\n', '').replace('!', '').replace('?', '').replace('.', '').replace('(', '')\
-                .replace(')', '').replace('<', '').replace('>', '').replace('\'', '').replace('"', '').replace('«', '')\
-                .replace('»', '').replace('-', '').replace('—', '').replace(';', '').split()
-            a += i
-        for j in a:
-            if j[0].isupper():
-                f.append(j)
-    a = [i.lower() for i in a]
-    d = {}
-    for i in range(len(a)-1):
-        if a[i] not in d:
-            d[a[i]] = []
-            d.setdefault(a[i], []).append(i+1)
-        else:
-            d.setdefault(a[i], []).append(i+1)
-    d.setdefault(a[-1], []).append(0)
-    return a, d, f
+    try:
+        with open(name, 'r', encoding="utf8") as f_in:
+            a = []
+            f = []
+            for i in f_in:
+                i = i.replace('\n', '').replace('!', '').replace('?', '').replace('.', '').replace('(', '')\
+                    .replace(')', '').replace('<', '').replace('>', '').replace('\'', '').replace('"', '').replace('«', '')\
+                    .replace('»', '').replace('-', '').replace('—', '').replace(';', '').split()
+                a += i
+            for j in a:
+                if j[0].isupper():
+                    f.append(j)
+        a = [i.lower() for i in a]
+        d = {}
+        for i in range(len(a)-1):
+            if a[i] not in d:
+                d[a[i]] = []
+                d.setdefault(a[i], []).append(i+1)
+            else:
+                d.setdefault(a[i], []).append(i+1)
+        d.setdefault(a[-1], []).append(0)
+        return a, d, f
+    except FileNotFoundError:
+        print('Неверное имя файла!')
+        main()
 
 
 def generation(array, dicti, n_sent, first):
@@ -64,7 +68,9 @@ def generation(array, dicti, n_sent, first):
         text += sent
         sent = []
     if text[-1][-1] == ',':
-        text[-1][-1] = text[-1][-1].replace(',','')
+        lis = dicti[str(array[int(word)])]
+        word = array[random.choice(lis)]
+        text += (word)
     output(text)
 
 
