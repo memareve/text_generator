@@ -1,7 +1,7 @@
 # Case-study #3
-# Developers: Marinkin O. (%),
-# Seledtsov A. (%),
-# Evdischenko M. (%)
+# Developers: Marinkin O. (30%),
+# Seledtsov A. (30%),
+# Evdischenko M. (80%)
 
 
 import random
@@ -20,8 +20,9 @@ def dictionary(name):
             f = []
             for i in f_in:
                 i = i.replace('\n', '').replace('!', '').replace('?', '').replace('.', '').replace('(', '')\
-                    .replace(')', '').replace('<', '').replace('>', '').replace('\'', '').replace('"', '').replace('«', '')\
-                    .replace('»', '').replace('-', '').replace('—', '').replace(';', '').replace('*', '').split()
+                    .replace(')', '').replace('<', '').replace('>', '').replace('\'', '').replace('"', '')\
+                    .replace('«', '').replace('»', '').replace('-', '').replace('—', '').replace(';', '')\
+                    .replace('*', '').split()
                 a += i
             for j in a:
                 if j[0].isupper():
@@ -70,7 +71,7 @@ def generation(array, dicti, n_sent, first):
     if text[-1][-1] == ',':
         lis = dicti[str(array[int(word)])]
         word = array[random.choice(lis)]
-        text += (word)
+        text += word
     output(text)
 
 
