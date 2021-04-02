@@ -1,7 +1,7 @@
 # Case-study #3
-# Developers: Marinkin O. (30%),
-# Seledtsov A. (30%),
-# Evdischenko M. (80%)
+# Developers: Marinkin O. (32%),
+# Seledtsov A. (27%),
+# Evdischenko M. (57%)
 
 
 import random
